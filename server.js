@@ -2,18 +2,17 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv/config";
 import connectDB from "./config/mongodb.js";
+import connectCloudinary from "./config/cloudinary.js";
 
 // app config
 const app = express();
 const port = process.env.PORT || 8000;
 
-try {
-  await connectDB();
-} catch (error) {
-  console.error("Database connection failed:", error.message);
-  process.exit(1);
-}
+// database connection
+connectDB();
 
+// cloudinary connection
+connectCloudinary();
 
 // middleware
 app.use(cors());
