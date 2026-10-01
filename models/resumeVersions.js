@@ -47,3 +47,6 @@ const userSchema = new mongoose.Schema({
         ]
     }
 },{timestamps: true});
+
+export const ResumeVersion = mongoose.model('ResumeVersion', userSchema);
+export default ResumeVersion;
