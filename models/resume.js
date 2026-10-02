@@ -7,14 +7,6 @@ const resumeSchema = new mongoose.Schema({
         required: true,
         index: true,
     },
-    title: {
-        type: String,
-        required: true,
-    },
-    current_version:{
-        type: String,
-        required: true,
-    },
     status: {
         type: String,
         enum: ['uploaded', 'analyzed', 'completed','failed'],
@@ -25,11 +17,18 @@ const resumeSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    cloudinary_id: {
+        type: String,
+        required: true,
+    },
     file_name: {
         type: String,
         required: true,
     },
-
+    size: {
+        type: Number,
+        required: false,
+    },
 },{timestamps: true});
 
 export const Resume = mongoose.model('Resume', resumeSchema);

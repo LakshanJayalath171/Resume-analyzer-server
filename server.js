@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv/config";
 import connectDB from "./config/mongodb.js";
 import connectCloudinary from "./config/cloudinary.js";
-import { clerkMiddleware } from "@clerk/express";
+import resumeRoutes from "./routes/resumeRoutes.js";
 
 // app config
 const app = express();
@@ -26,6 +26,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.status(200).send("Hello World");
 });
+
+app.use("/api/resume", resumeRoutes);
 
 // listen
 app.listen(port, () => {
