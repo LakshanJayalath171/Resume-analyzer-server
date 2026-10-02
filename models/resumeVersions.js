@@ -1,9 +1,13 @@
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
-    resume_id: {
+    parent_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Resume',
+        required: true,
+    },
+    resume_id: {
+        type: String,
         required: true,
     },
     version: {
