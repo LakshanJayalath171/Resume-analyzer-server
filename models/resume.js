@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
+
 const resumeSchema = new mongoose.Schema({
     user_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        type: String,
         required: true,
+        index: true,
     },
     title: {
         type: String,

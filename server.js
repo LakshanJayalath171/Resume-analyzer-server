@@ -18,8 +18,9 @@ connectCloudinary();
 
 // middleware
 app.use(cors());
-app.use(clerkMiddleware());
+
 app.use(express.json());
+
 
 // api routes
 app.get("/", (req, res) => {
