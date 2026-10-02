@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv/config";
 import connectDB from "./config/mongodb.js";
 import connectCloudinary from "./config/cloudinary.js";
+import { clerkMiddleware } from "@clerk/express";
 
 // app config
 const app = express();
@@ -17,6 +18,7 @@ connectCloudinary();
 
 // middleware
 app.use(cors());
+app.use(clerkMiddleware());
 app.use(express.json());
 
 // api routes
