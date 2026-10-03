@@ -1,5 +1,6 @@
 import { Resume } from "../models/resume.js";
 import uploadToCloudinary from "../utils/uploadToCloudinary.js";
+import extractPdfText from "../utils/extractPdfText.js";
 
 export const uploadResume = async (req, res) => {
     try {
@@ -10,6 +11,9 @@ export const uploadResume = async (req, res) => {
                 message: "No file uploaded",
             });
         }
+
+        const text = await extractPdfText(req.file.buffer);
+        
 
         // Upload PDF buffer to Cloudinary
         const pdfUpload = await uploadToCloudinary(
