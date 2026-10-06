@@ -2,7 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
   apiKey: process.env.GOOGLE_GENAI_API_KEY,
-  model: "gemini-pro",
+  model: "gemini-3.8-flash",
 });
 
 export const analyzeResume = async (text) => {
@@ -32,7 +32,7 @@ ${text}`;
 
   const response = await ai.models.generateContent({
     prompt: prompt,
-    model: "gemini-3.7-flash",
+    model: "gemini-3.8-flash",
     contents: prompt,
   });
 

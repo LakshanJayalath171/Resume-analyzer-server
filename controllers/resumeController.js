@@ -2,7 +2,10 @@ import { Resume } from "../models/resume.js";
 import uploadToCloudinary from "../utils/uploadToCloudinary.js";
 import extractPdfText from "../utils/extractPdfText.js";
 import { analyzeResume } from "../services/geminiServices.js";
+import { analyzeOpenAiResume } from "../services/openAiServices.js";
 import downloadPdf from "../utils/downloadPdf.js";
+
+// upload resume to the server
 
 const uploadResume = async (req, res) => {
     try {
@@ -126,7 +129,7 @@ const analyzeExistingResume = async (req, res) => {
         console.log("Downloaded PDF buffer:", pdfBuffer);
 
         const text = await extractPdfText(pdfBuffer);
-        console.log("Extracted text from PDF:", text);
+        
 
         const analysis = await analyzeResume(text);
 
